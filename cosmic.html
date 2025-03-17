@@ -19,6 +19,71 @@
       overflow-x: hidden;
     }
     
+    /* Stars background */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .star {
+      position: absolute;
+      background-color: white;
+      border-radius: 50%;
+      animation: twinkle 5s infinite;
+    }
+    
+    @keyframes twinkle {
+      0% { opacity: 0.2; }
+      50% { opacity: 1; }
+      100% { opacity: 0.2; }
+    }
+    
+    /* Shooting stars */
+    .shooting-star {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      animation: shoot 6s linear infinite;
+      opacity: 0;
+      z-index: 100;
+    }
+    
+    .shooting-star::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      transform: translateX(-100%);
+    }
+    
+    @keyframes shoot {
+      0% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      5% {
+        opacity: 1;
+      }
+      20% {
+        transform: translate(400px, 400px);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(400px, 400px);
+        opacity: 0;
+      }
+    }
+    
     body::before {
       content: '';
       position: fixed;
@@ -152,6 +217,9 @@
   </style>
 </head>
 <body>
+  <!-- Stars background -->
+  <div class="stars" id="stars"></div>
+  
   <header>
     <h1>I'm Truly Sorry</h1>
     <p>A heartfelt apology from across the cosmos</p>
@@ -240,12 +308,11 @@
         }
         
         .card-text {
-          font-size: 1.2rem;
-          line-height: 1.8;
+          font-size: 1.1rem;
+          line-height: 1.7;
+          color: #e0e0ff;
           text-align: center;
           font-style: italic;
-          color: #e0e0ff;
-          margin-bottom: 30px;
         }
         
         .signature {
@@ -261,9 +328,9 @@
     
     <!-- Contact Form Section -->
     <section class="section contact-form">
-      <h2>Send Me Your Response</h2>
+      <h2>Any Message For Me</h2>
       <div class="form-container">
-        <form action="https://formspree.io/f/xrgdkpaz" method="POST">
+        <form action="https://formspree.io/f/mqapablr" method="POST">
           <div class="form-group">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -345,5 +412,69 @@
       </style>
     </section>
   </main>
+  <script>
+    // Create stars - Updated with enhanced visibility and more stars
+    function createStars() {
+      const starsContainer = document.getElementById('stars');
+      const numberOfStars = 200;
+      
+      for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        
+        // Random position
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        
+        // Random size
+        const size = Math.random() * 2;
+        
+        // Random animation delay
+        const delay = Math.random() * 5;
+        
+        star.style.left = `${x}%`;
+        star.style.top = `${y}%`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.animationDelay = `${delay}s`;
+        
+        starsContainer.appendChild(star);
+      }
+    }
+    
+    // Create shooting stars
+    function createShootingStars() {
+      const starsContainer = document.getElementById('stars');
+      const numberOfShootingStars = 20; // Increased number of shooting stars
+      
+      for (let i = 0; i < numberOfShootingStars; i++) {
+        const shootingStar = document.createElement('div');
+        shootingStar.classList.add('shooting-star');
+        
+        // Random position
+        const x = Math.random() * 80;
+        const y = Math.random() * 40; // Keep stars higher in the sky
+        
+        // Random animation delay - shorter delays for more frequent shooting stars
+        const delay = Math.random() * 5;
+        
+        shootingStar.style.left = `${x}%`;
+        shootingStar.style.top = `${y}%`;
+        shootingStar.style.animationDelay = `${delay}s`;
+        
+        // Random rotation to create different angles
+        const angle = Math.random() * 45;
+        shootingStar.style.transform = `rotate(${angle}deg)`;
+        
+        starsContainer.appendChild(shootingStar);
+      }
+    }
+    
+    // Call the function when the page loads
+    window.onload = function() {
+      createStars();
+      createShootingStars();
+    };
+  </script>
 </body>
 </html>
