@@ -194,6 +194,156 @@
         <img src="WhatsApp Image 2025-03-16 at 10.23.12 PM.jpeg" alt="Memory 6">
       </div>
     </section>
+    
+    <!-- Message Card Section -->
+    <section class="section message-card">
+      <h2>A Message From My Heart</h2>
+      <div class="card">
+        <p class="card-text">
+          In the vastness of the cosmos, among countless stars and galaxies, 
+          I found you - the brightest light in my universe. 
+          Though I've made mistakes, my affection for you remains constant 
+          like the North Star. I promise to be better, to listen more, 
+          and to cherish every moment we share together.
+        </p>
+        <p class="signature">With eternal devotion,<br>Pushpendra</p>
+      </div>
+      <style>
+        .card {
+          background: rgba(11, 19, 43, 0.7);
+          border-radius: 10px;
+          padding: 25px;
+          margin: 20px auto;
+          max-width: 600px;
+          box-shadow: 0 0 20px rgba(123, 104, 238, 0.4);
+          border: 1px solid rgba(138, 43, 226, 0.3);
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, #7b68ee, #8a2be2, #4b0082, #7b68ee);
+          background-size: 300% 100%;
+          animation: gradientFlow 8s ease infinite;
+        }
+        
+        @keyframes gradientFlow {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        
+        .card-text {
+          font-size: 1.2rem;
+          line-height: 1.8;
+          text-align: center;
+          font-style: italic;
+          color: #e0e0ff;
+          margin-bottom: 30px;
+        }
+        
+        .signature {
+          font-family: 'Orbitron', sans-serif;
+          text-align: right;
+          font-size: 1.1rem;
+          color: #9370db;
+          margin-top: 20px;
+          margin-right: 20px;
+        }
+      </style>
+    </section>
+    
+    <!-- Contact Form Section -->
+    <section class="section contact-form">
+      <h2>Send Me Your Response</h2>
+      <div class="form-container">
+        <form action="https://formspree.io/f/xrgdkpaz" method="POST">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Share your thoughts with me..." required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+      <style>
+        .form-container {
+          max-width: 600px;
+          margin: 0 auto;
+        }
+        
+        .form-group {
+          margin-bottom: 20px;
+        }
+        
+        label {
+          display: block;
+          margin-bottom: 8px;
+          font-family: 'Orbitron', sans-serif;
+          color: #9370db;
+          font-size: 1rem;
+        }
+        
+        input, textarea {
+          width: 100%;
+          padding: 12px;
+          background: rgba(11, 19, 43, 0.7);
+          border: 1px solid rgba(123, 104, 238, 0.4);
+          border-radius: 8px;
+          color: #e0e0ff;
+          font-family: 'Exo 2', sans-serif;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+          outline: none;
+          box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+          border-color: #7b68ee;
+        }
+        
+        .submit-btn {
+          background: linear-gradient(45deg, #7b68ee, #8a2be2);
+          color: white;
+          border: none;
+          padding: 12px 25px;
+          border-radius: 30px;
+          font-family: 'Orbitron', sans-serif;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: block;
+          margin: 0 auto;
+          box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+        }
+        
+        .submit-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+          background: linear-gradient(45deg, #8a2be2, #4b0082);
+        }
+        
+        ::placeholder {
+          color: rgba(224, 224, 255, 0.5);
+        }
+      </style>
+    </section>
   </main>
 </body>
 </html>
